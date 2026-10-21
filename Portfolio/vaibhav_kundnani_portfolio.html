@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vaibhav Kundnani | Personal Portfolio</title>
+    <style>
+        /* --- CSS Variables for consistent theming --- */
+        :root {
+            --primary-color: #2563eb;
+            --primary-hover: #1d4ed8;
+            --bg-color: #f8fafc;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --card-bg: #ffffff;
+            --border-radius: 12px;
+            --transition: all 0.3s ease;
+        }
+
+        /* --- Global Reset & Base Styles --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: var(--primary-hover);
+        }
+
+        /* --- Layout Containers --- */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- Header / Hero Section --- */
+        header {
+            background-color: var(--card-bg);
+            padding: 80px 0;
+            text-align: center;
+            border-bottom: 1px solid #e2e8f0;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        .profile-img-container {
+            margin-bottom: 20px;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid white;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            background-color: #e2e8f0; /* Fallback color for placeholder */
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: var(--text-main);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+
+        .bio {
+            max-width: 600px;
+            margin: 0 auto 30px auto;
+            font-size: 1.05rem;
+            color: var(--text-muted);
+        }
+
+        /* --- Skills Section --- */
+        .skills {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .skill-tag {
+            background-color: #eff6ff;
+            color: var(--primary-color);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border: 1px solid #bfdbfe;
+        }
+
+        /* --- Projects Section --- */
+        #projects {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 40px;
+            color: var(--text-main);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--primary-color);
+            margin: 10px auto 0 auto;
+            border-radius: 2px;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            transition: var(--transition);
+            border: 1px solid #f1f5f9;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        .project-title {
+            font-size: 1.25rem;
+            margin-bottom: 15px;
+            color: var(--text-main);
+        }
+
+        .project-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+
+        /* --- Footer / Contact Section --- */
+        footer {
+            background-color: #0f172a;
+            color: #f8fafc;
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        footer h2 {
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+        }
+
+        footer p {
+            color: #94a3b8;
+            margin-bottom: 25px;
+        }
+
+        .contact-btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: var(--transition);
+        }
+
+        .contact-btn:hover {
+            background-color: var(--primary-hover);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .footer-bottom {
+            margin-top: 40px;
+            font-size: 0.85rem;
+            color: #64748b;
+            border-top: 1px solid #1e293b;
+            padding-top: 20px;
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 600px) {
+            header h1 { font-size: 2rem; }
+            .subtitle { font-size: 1.1rem; }
+            .section-title { font-size: 1.8rem; }
+            #projects { padding: 50px 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Introduction Section -->
+    <header>
+        <div class="container">
+            <div class="profile-img-container">
+                <!-- Placeholder Image from Placehold.co -->
+                <img src="https://placehold.co/300x300/e2e8f0/64748b?text=Photo\nPlaceholder" alt="Vaibhav Kundnani" class="profile-img">
+            </div>
+            
+            <h1>Vaibhav Kundnani</h1>
+            <h2 class="subtitle">B.Tech Computer Science and Engineering Student</h2>
+            
+            <p class="bio">
+                Hello! I am a passionate engineering student focused on building efficient software and engaging web experiences. I love tackling complex problems through code and am constantly expanding my technical skill set.
+            </p>
+
+            <div class="skills">
+                <span class="skill-tag">C</span>
+                <span class="skill-tag">C++</span>
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">HTML / CSS</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">My Projects</h2>
+            
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <h3 class="project-title">Apex Institute of Engineering Web Prototype</h3>
+                    <p class="project-desc">
+                        A comprehensively designed web prototype tailored for an educational institute. It features responsive layouts to effectively showcase academic programs, campus facilities, and admissions information to prospective students.
+                    </p>
+                    <a href="#" class="project-link">View Details &rarr;</a>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <h3 class="project-title">SMRITI - AI Dementia Care Platform</h3>
+                    <p class="project-desc">
+                        An innovative, AI-driven healthcare platform designed to assist dementia patients and their caregivers. It integrates intelligent tracking, memory-aid tools, and resources to improve daily care management.
+                    </p>
+                    <a href="#" class="project-link">View Details &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / Contact Section -->
+    <footer>
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <p>I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.</p>
+            
+            <a href="mailto:contact@example.com" class="contact-btn">Contact Me</a>
+            
+            <div class="footer-bottom">
+                &copy; <script>document.write(new Date().getFullYear())</script> Vaibhav Kundnani. Created for Practical Assignment.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
